@@ -4,7 +4,6 @@ const url = require('url');
 
 module.exports = class wsServer {
     constructor(wsConfig, { prefix = '/', proxyServerName = 'Proxy', prefabRoute = [] , proxifier}) {
-        console.log({ wsConfig, prefix, proxyServerName, prefabRoute });
         if (prefix.substring(prefix.length - 1) == '/') {
             prefix = prefix.substring(0, prefix.length - 1);
         }
