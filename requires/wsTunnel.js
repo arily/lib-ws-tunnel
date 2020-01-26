@@ -52,7 +52,7 @@ module.exports = class wsTunnel {
             chain: this.chain,
             container: this.server.connections,
             type: 'tcp'
-        })
+        }, this.server.proxifierConfig);
     }
 
     udp(src, port, addr, req) {

@@ -3,7 +3,7 @@ const wsConnectionContainer = require('./wsConnectionContainer');
 const url = require('url');
 
 module.exports = class wsServer {
-    constructor(wsConfig, { prefix = '/', proxyServerName = 'Proxy', prefabRoute = [] }) {
+    constructor(wsConfig, { prefix = '/', proxyServerName = 'Proxy', prefabRoute = [] , proxifier}) {
         console.log({ wsConfig, prefix, proxyServerName, prefabRoute });
         if (prefix.substring(prefix.length - 1) == '/') {
             prefix = prefix.substring(0, prefix.length - 1);
@@ -11,7 +11,7 @@ module.exports = class wsServer {
         this.prefix = prefix;
         this.name = proxyServerName;
         this.prefabRoute = prefabRoute;
-
+        this.proxifierConfig = proxifier;
         this.server = new server(wsConfig);
         this.connections = new wsConnectionContainer();
         this.newConnection = this.newConnection.bind(this);
