@@ -42,7 +42,7 @@ module.exports = class wsTunnelProxifier {
         this.chain = chain;
         this.container = container;
         this.port = port;
-        this.config = require('../config/wstunnel').Proxifier;
+        this.config = config;
 
         dst.on('error', (e) => {
             this.closeDst();
