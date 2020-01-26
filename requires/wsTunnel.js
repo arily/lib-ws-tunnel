@@ -2,13 +2,13 @@ const net = require("net");
 const dgram = require('dgram');
 const wsTunnelProxifier = require('./wsTunnelProxifier');
 module.exports = class wsTunnel {
-    getID() {
+    getId() {
         return this.headers.uuid;
     }
     constructor({ src, protocol, port, addr, req, headers, server }) {
 
         this.serverName = server.name;
-        this.getID = this.getID.bind(this);
+        this.getId = this.getId.bind(this);
         this.src = src;
         this.protocol = protocol.substring(0, protocol.length - 1);
         this.port = port;
@@ -16,10 +16,10 @@ module.exports = class wsTunnel {
         this.req = req;
         this.headers = headers;
         this.server = server;
-        this.id = this.getID();
+        this.id = this.getId();
         this.chain = {
-            srcID: this.id,
-            clientID: this.headers.client,
+            srcId: this.id,
+            clientId: this.headers.client,
             srcConnection: 1,
             dstConnection: 0,
             serverName: this.serverName,

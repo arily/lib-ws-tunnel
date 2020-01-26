@@ -1,6 +1,6 @@
 module.exports = class wsTunnelProxifier {
     report_status(chain) {
-        let id = chain.srcID;
+        let id = chain.srcId;
         const status = (status) => {
             switch (status) {
                 case 0:
@@ -93,7 +93,7 @@ module.exports = class wsTunnelProxifier {
         this.abortTimeout = setTimeout(() => {
             this.closeDst();
             this.chain.dstConnection = 0;
-            this.container.destroy(this.chain.srcID);
+            this.container.destroy(this.chain.srcId);
         }, timeOut);
         this.report_status(this.chain);
     }
@@ -162,7 +162,7 @@ module.exports = class wsTunnelProxifier {
             if (this.chain.dstConnection === 1) {
                 this.closeDst(e);
             }
-            this.container.destroy(this.chain.srcID);
+            this.container.destroy(this.chain.srcId);
         }
     }
     dstOnClose(e) {
