@@ -149,7 +149,7 @@ module.exports = class wsTunnel {
             let url = this.parseURL(real.bound);
             this.protocol = url.protocol.substring(0, url.protocol.length - 1);
             this.port = url.port;
-            this.addr = url.addr;
+            this.addr = url.hostname;
             this[`${this.protocol}`](this.src, this.port, this.addr, this.req);
         } else {
             throw new Error('Route Undefined')
